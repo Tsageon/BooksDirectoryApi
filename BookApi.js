@@ -58,8 +58,8 @@ app.get('/bookstore', (req, res) => {
 app.post('/bookstore', (req, res) => {
   const newItem = req.body;
   
-  if (!newItem.name || !newItem.author || !newItem.publisher || !newItem.publishedDate || !newItem.isbn || isNaN(newItem.isbn)) {
-    return res.status(400).send('Book must have a valid name, author, publisher, publishedDate, and ISBN.');
+  if (!newItem.title || !newItem.author || !newItem.publisher || !newItem.publishedDate || !newItem.isbn || isNaN(newItem.isbn)) {
+    return res.status(400).send('Book must have a valid title, author, publisher, publishedDate, and ISBN.');
   }
 
   const data = readJSONFile();
@@ -80,8 +80,8 @@ app.post('/bookstore', (req, res) => {
 app.put('/bookstore', (req, res) => {
   const updatedItem = req.body;
 
-  if (!updatedItem.name || !updatedItem.author || !updatedItem.publisher || !updatedItem.publishedDate || !updatedItem.isbn || isNaN(updatedItem.isbn)) {
-    return res.status(400).send('Book must have a valid name, author, publisher, publishedDate, and ISBN.');
+  if (!updatedItem.title || !updatedItem.author || !updatedItem.publisher || !updatedItem.publishedDate || !updatedItem.isbn || isNaN(updatedItem.isbn)) {
+    return res.status(400).send('Book must have a valid title, author, publisher, publishedDate, and ISBN.');
   }
 
   const data = readJSONFile();

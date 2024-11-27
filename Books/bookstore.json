@@ -6,5 +6,13 @@
     "publishedDate": "2000",
     "isbn": "1234567890",
     "id": 1
+  },
+  {
+    "title": "Example Book",
+    "author": "Author Name",
+    "publisher": "Publisher Name",
+    "publishedDate": "2024-11-27",
+    "isbn": "1234567860",
+    "id": 2
   }
 ]
