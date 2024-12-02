@@ -42,7 +42,7 @@ initJSONFile();
 app.use(express.json());
 
 app.get('/bookstore', (req, res) => {
-  const isbn = req.query.isbn;
+  const isbn = req.query.isbn ? Number(req.query.isbn) : null;
   const data = readJSONFile();
 
   if (isbn) {
@@ -57,7 +57,9 @@ app.get('/bookstore', (req, res) => {
 
 app.post('/bookstore', (req, res) => {
   const newItem = req.body;
-  
+
+  newItem.isbn = Number(newItem.isbn);
+
   if (!newItem.title || !newItem.author || !newItem.publisher || !newItem.publishedDate || !newItem.isbn || isNaN(newItem.isbn)) {
     return res.status(400).send('Book must have a valid title, author, publisher, publishedDate, and ISBN.');
   }
@@ -76,9 +78,10 @@ app.post('/bookstore', (req, res) => {
   res.status(201).json(newItem);
 });
 
-
 app.put('/bookstore', (req, res) => {
   const updatedItem = req.body;
+
+  updatedItem.isbn = Number(updatedItem.isbn);
 
   if (!updatedItem.title || !updatedItem.author || !updatedItem.publisher || !updatedItem.publishedDate || !updatedItem.isbn || isNaN(updatedItem.isbn)) {
     return res.status(400).send('Book must have a valid title, author, publisher, publishedDate, and ISBN.');
@@ -98,7 +101,7 @@ app.put('/bookstore', (req, res) => {
 });
 
 app.delete('/bookstore', (req, res) => {
-  const isbn = req.query.isbn;
+  const isbn = req.query.isbn ? Number(req.query.isbn) : null;
 
   if (!isbn || isNaN(isbn)) {
     return res.status(400).send('ISBN is required and must be a valid number.');

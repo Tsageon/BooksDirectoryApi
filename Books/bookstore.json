@@ -14,5 +14,21 @@
     "publishedDate": "2024-11-27",
     "isbn": "1234567860",
     "id": 2
+  },
+  {
+    "title": "GGSMG",
+    "author": "Tekzina",
+    "publisher": "Ahuh",
+    "publishedDate": "2000",
+    "isbn": "1234567830",
+    "id": 3
+  },
+  {
+    "title": "Facilitator Things",
+    "author": "KB KKK",
+    "publisher": "KB",
+    "publishedDate": "202e4-11-28",
+    "isbn": 1234567890123,
+    "id": 6
   }
 ]
